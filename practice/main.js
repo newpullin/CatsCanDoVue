@@ -14,11 +14,7 @@ var app = new Vue({
         radius: 50,
         x_pos : 100,
         name: '키메라',
-        list: [
-            {id: 1, name: '슬라임', hp: 100},
-            {id: 2, name: '슬라임2', hp: 200},
-            {id: 3, name: '슬라임3', hp: 300}
-        ]
+        list: []
     },
     methods: {
         increment: function() {
@@ -51,9 +47,15 @@ var app = new Vue({
         
     },
     created:function() {
-        this.list.forEach(function(item){
+        axios.get('list.json').then(function(response){
+            this.list = response.data
+        }.bind(this)).then(this.list.forEach(function(item){
             this.$set(item, 'active', false)
-        }, this)
+        }, this)).catch(function(e){
+            console.error(e)
+        })
+        
+        
     }
 
     
