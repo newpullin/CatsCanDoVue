@@ -14,9 +14,12 @@
 
         <p v-bind:class="classObject">Text</p>
         <p v-bind:style="styleObject">Text</p>
-        
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <circle v-bind:cx="x_pos" cy="75" v-bind:r="radius" fill="lightpink" />
+        </svg>
+        <input type="range" min="0" max="100" v-model="radius">
+        <input type="range" min="100" max="200" v-model="x_pos">
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
     <script src="main.js"></script>
     

@@ -10,7 +10,9 @@ var app = new Vue({
         styleObject : {
             color: 'red',
             backgroundColor: "lightgray",
-        }
+        },
+        radius: 50,
+        x_pos : 100,
     },
     methods: {
         increment: function() {
