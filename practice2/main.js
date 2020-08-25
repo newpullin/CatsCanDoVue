@@ -1,3 +1,15 @@
+var scroll = new SmoothScroll('a[href*="#"]', {
+	// Function. Custom easing pattern
+	// If this is set to anything other than null, will override the easing option above
+	customEasing: function (time) {
+
+		// return <your formulate with time as a multiplier>
+
+		// Example: easeInOut Quad
+		return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+
+	}
+});
 new Vue({
     el: '#app',
     data: {
@@ -36,7 +48,11 @@ new Vue({
                     this.timer= null
                 }.bind(this), 200)
             }
+        },
+        scrollTop: function() {
+            scroll.animateScroll(0)
         }
+
     },
     created: function() {
         window.addEventListener('scroll', this.handleScroll)
