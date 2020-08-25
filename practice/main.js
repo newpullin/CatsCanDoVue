@@ -34,6 +34,28 @@ var app = new Vue({
                 name: this.name,
                 hp: 500
             })
+        },
+        doRemove: function(index) {
+            this.list.splice(index,1)
+        },
+        doAttack: function(index) {
+            var target = this.list[index]
+            this.$set(target, 'hp', target.hp - 10)
+            if(target.hp <= 0) {
+                this.list.splice(index,1)
+            } 
+            else if(target.hp < 50){
+                this.$set(target, 'active', true)
+            }
         }
+        
+    },
+    created:function() {
+        this.list.forEach(function(item){
+            this.$set(item, 'active', false)
+        }, this)
     }
+
+    
+
 })
