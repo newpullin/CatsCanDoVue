@@ -9,14 +9,12 @@
 <body>
     <div id="app">
         <!-- #app 내부에 템플릿을 출력할 것입니다.-->
-        <p>{{ message.value}}</p>
-        <p>{{ message.value.length }}</p>
-        <p>{{ list[2]}}</p>
-        <p>{{ list[num] }}</p>
+        <p> {{ count }} 번 클릭했습니다.</p>
+        <button v-on:click="increment">카운트하기</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
-    <script src="main.js"></script>>
+    <script src="main.js"></script>
     
 </body>
 </html>
