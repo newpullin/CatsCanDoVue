@@ -1,10 +1,12 @@
-var app = new Vue({
+new Vue({
     el: '#app',
     data: {
         message : 'Hello Vue',
         val: [],
         val_radio: '',
-        preview: ''
+        preview: '',
+        scrollY: 0,
+        timer: null,
     },
     methods: {
         handler(event) {
@@ -24,6 +26,22 @@ var app = new Vue({
             if (file && file.type.match(/^image\/(png|jpeg)$/)) {
                 this.preview = window.URL.createObjectURL(file)
             }
+        },
+        handleScroll: function() {
+            if(this.timer === null) {
+                this.timer = setTimeout(function(){
+                    this.scrollY = window.scrollY
+                    console.log(this.scrollY)
+                    clearTimeout(this.timer)
+                    this.timer= null
+                }.bind(this), 200)
+            }
         }
-    }
+    },
+    created: function() {
+        window.addEventListener('scroll', this.handleScroll)
+    },
+    beforeDestroy: function() {
+        window.removeEventListener('scroll', this.handleScroll)
+    },
 })

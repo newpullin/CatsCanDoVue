@@ -27,6 +27,11 @@
     <br>
     <input type="file" v-on:change="handleChange">
     <div v-if="preview"><img v-bind:src="preview"></div>
+    <header v-bind:class="{ compact: scrollY > 200 }">
+        200px 이상 스크롤 했으면 compact 클래스 추가하기
+        <p v-for="li in 2000">xxxxx</p>
+    </header>
+    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
     <script src="main.js"></script>
