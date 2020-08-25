@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- #app 내부에 템플릿을 출력할 것입니다.-->
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+        <comp-child :val="msg1" v-once></comp-child>
+        <comp-child :val="msg2" v-once></comp-child>
+        <button @click = "change_child">자식 바꾸기</button>
+        <comp-child val="c" @childs-event="parentsMethod"></comp-child>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
+    <script src="main.js"></script>
+</body>
+</html>
