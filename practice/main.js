@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
         //객체 데이터
         count :0,
+        ref_show : true,
         classObject : {
             child:true,
             'is-active': false,
@@ -43,6 +44,12 @@ var app = new Vue({
             else if(target.hp < 50){
                 this.$set(target, 'active', true)
             }
+        },
+        ref_counter() {
+            var count= this.$refs.ref_hello
+            if(count) {
+                count.innerText = parseInt(count.innerText,10) + 1
+            }
         }
         
     },
@@ -54,10 +61,10 @@ var app = new Vue({
         }, this)).catch(function(e){
             console.error(e)
         })
-        
-        
-    }
-
-    
+    },
+    mounted: function() {
+        console.log(this.$el)
+        console.log(this.$refs.ref_hello)
+    },
 
 })

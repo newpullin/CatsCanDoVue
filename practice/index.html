@@ -31,6 +31,10 @@
                 <button v-on:click="doAttack(index)">몬스터 때리기</button>
             </li>
         </ul>
+        <p ref="ref_hello" v-if="ref_show">0</p>
+        <button v-on:click="ref_counter">숫자 증가될까?</button>
+        <button v-if = "ref_show === true" v-on:click="ref_show=!ref_show">표시안하기</button>
+        <button v-else v-on:click="ref_show=!ref_show">표시하기</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
