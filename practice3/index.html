@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- #app 내부에 템플릿을 출력할 것입니다.-->
+        <h1>{{ width }}</h1>
+        <h1>{{ halfWidth }}</h1>
+        <input type="text" v-model="temp_width">
+        <button v-on:click ="btn1">확인</button><br>
+        <input type="text" v-model="halfWidth">
+        <button >확인</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
+    <script src="main.js"></script>
+</body>
+</html>
