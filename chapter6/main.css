@@ -1,0 +1,36 @@
+.v-enter-active, .v-leave-active{
+    transition:opacity 1s,transform 1s;
+}
+
+.v-enter {
+    opacity: 0;
+    transform:translateX(-10px);
+}
+
+.v-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.demo-enter-active, .demo-leave-active{
+    transition:opacity 1s,transform 1s;
+}
+
+.demo-enter {
+    opacity: 0;
+    transform:translateX(-10px);
+}
+
+.demo-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+.demo-leave-active{
+    position: absolute;
+}
+
+.v-move {
+    transition: transform 1s;
+}

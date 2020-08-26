@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="app">
+        <button @click="show=!show">변경하기</button>
+        <transition appear>
+            <div v-show="show">트랜지션 요소</div>
+        </transition>
+        <button @click="show1=!show1">변경하기</button>
+        <transition name="demo">
+            <div v-if="show1" key="a">TRUE</div>
+            <div v-else key="b">FALSE</div>
+        </transition>
+        <button v-on:click="count++">변경하기</button>
+        <transition name="countp">
+            <div v-bind:key="count"> {{ count }} </div>
+        </transition>
+
+        <transition-group name="list" tag="ul">
+            <li v-for="item in sortedList" v-bind:key="item.id">{{item.name}} {{item.price}}원</li>
+        </transition-group>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                show1: true,
+                count: 0,
+                list: [
+                    {id: 1, name: '사과', price: 1100},
+                    {id: 2, name: '사과', price: 2200},
+                    {id: 3, name: '사과', price: 3100},
+                    {id: 4, name: '사과', price: 4100},
+                    {id: 5, name: '사과', price: 5100},
+                    {id: 6, name: '사과', price: 6100},
+                    {id: 7, name: '사과', price: 7100},
+                    {id: 8, name: '사과', price: 8100},
+                    {id: 9, name: '사과', price: 9100},
+                    {id: 10, name: '사과', price: 1500},
+                    {id: 11, name: '사과', price: 1200},
+                    {id: 12, name: '사과', price: 1400}
+                ]
+            },
+            computed: {
+                sortedList: function() {
+                    return _.orderBy(this.list, 'price', this.order ? 'desc': 'asc')
+                }
+            }
+        })
+    </script>
+    
+    
+</body>
+</html>
