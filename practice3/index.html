@@ -14,8 +14,32 @@
         <button v-on:click ="btn1">확인</button><br>
         <input type="text" v-model="halfWidth">
         <button >확인</button>
+
+        <input v-model.number="budget">원 이하 필터링하기
+        <input v-model.number="limit">개의 결과 출력하기
+        <p>{{ matched.length }}개 중에 {{ limited.length }}개를 출력하고 있습니다.</p>
+        <ul>
+            <li v-for="item in limited" v-bind:key ="item.id">{{ item.name }} {{item.price }} </li>
+        </ul>
+
+        <select v-model="current">
+            <option v-for="topic in topics" v-bind:value="topic.value">
+                {{topic.name}}
+            </option>
+        </select>
+        <div v-for="item in list2">{{ item.full_name }}</div>
+        <br>
+        <button @click="video1=true">재생</button>
+        <button @click="video1=false">중지</button>
+        <video src="movie1.mp4" v-video="video1"></video>
+
+        <button @click="list3.push(list3.length+1)">추가</button>
+        <ul ref="list3">
+            <li v-for="item in list3">{{item}}</li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
